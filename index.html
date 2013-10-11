@@ -181,7 +181,6 @@
                     $http.jsonp('http://gd.geobytes.com/AutoCompleteCity', {
                         params: {
                             callback: 'JSON_CALLBACK',
-                            filter: 'US',
                             q: query
                         }
                     }).success(function (cities) {
