@@ -63,7 +63,7 @@
             <div clas="container">
                 <div class="centered main-quote">
                     <p ng-show="trip.budgetKeyword">What are the best vacations for your budget?</p>
-                    <p ng-hide="trip.budgetKeyword">What are the best vacations for you?</p>
+                    <p ng-hide="trip.budgetKeyword" style="font-size: 2em">Find vacation ideas.</p>
                 </div>
 
                 <form class="form-inline form-search search-form" role="form">
@@ -78,7 +78,7 @@
                         <div class="input-group col-sm-4">
 
                             <select name="weeks" class="form-control" ng-model="trip.budget">
-                                <option value="">Whats is your budget?</option>
+                                <option value="">What is your budget?</option>
                                 <option value="1000">$1,000</option>
                                 <option value="2000">$2,000</option>
                                 <option value="5000">$5,000</option>
@@ -90,9 +90,9 @@
                         <div class="input-g2oup col-sm-2" ng-model="trip.travelers" ng-init="trip.travelers=1">
                             <select name="travelers" class="form-control">
                                 <option value="1">1 traveler</option>
-                                <option value="2">2 traveler</option>
-                                <option value="3">3 traveler</option>
-                                <option value="4">4 traveler</option>
+                                <option value="2" selected>2 travelers</option>
+                                <option value="3">3 travelers</option>
+                                <option value="4">4 travelers</option>
                             </select>
                         </div>
 
