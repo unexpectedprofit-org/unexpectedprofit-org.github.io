@@ -62,21 +62,23 @@
         <div class="jumbotron cover">
             <div clas="container">
                 <div class="centered main-quote">
-                    <p>What are the best vacations for my budget?</p>
+                    <p ng-show="trip.budgetKeyword">What are the best vacations for your budget?</p>
+                    <p ng-hide="trip.budgetKeyword">What are the best vacations for you?</p>
                 </div>
 
                 <form class="form-inline form-search search-form" role="form">
                     <div class="row">
                         <div class="form-group col-sm-5">
-                            <input ng-model="trip.from" maxlength="100" placeholder="Where do we start?"
+                            <input ng-model="trip.from" maxlength="100" placeholder="Where are you leaving from?"
                                    type="text" class="form-control" id="from"
                                    bs-typeahead="autocomplete"/>
+
                         </div>
 
                         <div class="input-group col-sm-4">
 
                             <select name="weeks" class="form-control" ng-model="trip.budget">
-                                <option value="">Whats is our budget?</option>
+                                <option value="">Whats is your budget?</option>
                                 <option value="1000">$1,000</option>
                                 <option value="2000">$2,000</option>
                                 <option value="5000">$5,000</option>
@@ -160,6 +162,7 @@
             var app = angular.module("siteApp", ['firebase', '$strap.directives']);
             app.controller("MainCtrl", function ($scope, angularFire, $http) {
                 $scope.trip = {};
+                $scope.trip.budgetKeyword = Math.random() > 0.5;
                 $scope.autocomplete = function (query, callback) {
                     $http.jsonp('http://gd.geobytes.com/AutoCompleteCity', {
                         params: {
