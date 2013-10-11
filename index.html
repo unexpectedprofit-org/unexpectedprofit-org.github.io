@@ -1,96 +1,182 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TripPocket</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+        <style>
+            .cover {
+                background: url(images/cover.jpg) no-repeat;
+                background-size: cover;
+                padding-top: 200px;
+                padding-bottom: 130px;
+            }
 
-        <link rel="stylesheet" href="styles/2d3cc473.main.css">
-  </head>
-  <body ng-app="siteApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+            .search-form {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+                background: rgba(100, 100, 100, 0.6);
+                padding: 5px;
+                border-radius: 3px;
+            }
 
-    <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
+            .col-sm-5, .col-sm-4, .col-sm-2, .col-sm-1 {
+                padding-left: 3px;
+                padding-right: 3px;
+            }
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-controller="MainCtrl">
+            .row {
+                margin-left: 0px;
+                margin-right: 10px;
+            }
 
-        <form class="form-search">
-            <legend>What are the best vacations possible for my budget?</legend>
-            <input type="text" placeholder="Where do you start your trip?" ng-model="trip.location.start">
-            <input type="number" placeholder="What's your budget?" ng-model="trip.budget">
-            <select name="weeks" class="form-control" ng-model="trip.duration" ng-init="trip.duration=1">
-                <option value="1">1 Week</option>
-                <option value="2">2 Weeks</option>
-                <option value="3">3 Weeks</option>
-                <option value="4">4 Weeks</option>
-            </select>
-            <select name="persons" class="form-control" ng-model="trip.persons" ng-init="trip.persons=1">
-                <option value="1">1 person</option>
-                <option value="2">2 persons</option>
-                <option value="3">3 persons</option>
-                <option value="4">4 persons</option>
-                <option value="5">5 persons</option>
-                <option value="6">6 persons</option>
-            </select>
-            <select name="beds" class="form-control" ng-model="trip.beds" ng-init="trip.beds=1">
-                <option value="1">1 bed</option>
-                <option value="2">2 beds</option>
-                <option value="3">3 beds</option>
-                <option value="4">4 beds</option>
-                <option value="5">5 beds</option>
-                <option value="6">6 beds</option>
-            </select>
-            <button type="submit" class="btn btn-success" ng-click="ui.submit=true">Search</button>
-            <!--<button type="reset" class="btn" ng-click="resetForm()">Reset</button>-->
-        </form>
+            .centered {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 800px;
+            }
 
-        <!--<pre>{{ ui | json }}</pre>-->
+            .main-quote {
+                color: #fff;
+                font-size: 1.2em;
+                text-shadow: 0 0px 5px rgba(0, 0, 0, 0.8);
+            }
 
-        <div ng-show="ui.submit">
-            <div class="alert alert-success">We're comming soon... Be the first to try our site!</div>
+            .main-quote cite {
+                color: #aaa;
+            }
 
-            <form class="signin form-inline">
-                <input type="text" class="input-small" placeholder="First Name" ng-model="trip.firstName">
-                <input type="text" class="input-small" placeholder="Email" ng-model="trip.email">
-                <button type="submit" class="btn" ng-click="ui.submit=false">Notify me!</button>
-            </form>
+        </style>
+    </head>
+    <body ng-app="siteApp" ng-controller="MainCtrl">
+        <nav class="navbar navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Trip<span style="color: #222">Pocket</span></a>
+            </div>
+        </nav>
 
+        <div class="jumbotron cover">
+            <div clas="container">
+                <div class="centered main-quote">
+                    <p>What are the best vacations possible for my budget?</p>
+                </div>
+
+                <form class="form-inline form-search search-form" role="form">
+                    <div class="row">
+                        <div class="form-group col-sm-5">
+                            <input ng-model="trip.from" maxlength="100" placeholder="Where do we start?"
+                                   type="text" class="form-control" id="from"
+                                   bs-typeahead="autocomplete"/>
+                        </div>
+
+                        <div class="input-group col-sm-4">
+
+                            <select name="weeks" class="form-control" ng-model="trip.budget">
+                                <option value="">Whats is our budget?</option>
+                                <option value="1000">$1,000</option>
+                                <option value="2000">$2,000</option>
+                                <option value="5000">$5,000</option>
+                                <option value="10000">$10,000</option>
+                                <option value="15000">$15,000</option>
+                            </select>
+                        </div>
+
+                        <div class="input-g2oup col-sm-2" ng-model="trip.travelers" ng-init="trip.travelers=1">
+                            <select name="travelers" class="form-control">
+                                <option value="1">1 traveler</option>
+                                <option value="2">2 traveler</option>
+                                <option value="3">3 traveler</option>
+                                <option value="4">4 traveler</option>
+                            </select>
+                        </div>
+
+                        <div class="col-sm-1">
+                            <button type="submit" class="btn btn-success" data-toggle="modal" href="#myModal">Search</button>
+                            <!--<a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>-->
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        <footer>
+            <!--Uncomment to debug-->
+            <!--<pre>{{trip | json}}</pre>-->
+            <!--Uncomment to debug-->
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+            <div class="">
+                <div class="container centered">
+                    <blockquote class="pull-right">
+                        <p>&#8220;Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.&#8221;&nbsp;&nbsp;</p>
+                        <small><cite title="Source Title">Mark Twain</cite></small>
+                    </blockquote>
+                </div>
+            </div>
+        </footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">We're comming soon... Be the first to try our site!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="signin form-inline">
+                            <input type="text" class="input-small" placeholder="Email" ng-model="trip.email">
+                            <button type="submit" class="btn" data-dismiss="modal">Notify me!</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 
-        <script src="scripts/76c21dca.plugins.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','http:////www.google-analytics.com/analytics.js','ga');
 
-        <script src="scripts/6b865daa.modules.js"></script>
+            ga('create', 'UA-42437505-3', 'trippocket.com');
+            ga('send', 'pageview');
+        </script>
 
-        <script src="scripts/23e3d792.scripts.js"></script>
 
-    <script src="//cdn.firebase.com/v0/firebase.js"></script>
-    <script src="//cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
-  </body>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.4/angular-strap.min.js"></script>
+
+        <script>
+            var app = angular.module("siteApp", ['firebase', '$strap.directives']);
+            app.controller("MainCtrl", function ($scope, angularFire, $http) {
+                $scope.trip = {};
+                $scope.autocomplete = function (query, callback) {
+                    $http.jsonp('http://gd.geobytes.com/AutoCompleteCity', {
+                        params: {
+                            callback: 'JSON_CALLBACK',
+                            filter: 'US',
+                            q: query
+                        }
+                    }).success(function (cities) {
+                        callback(cities);
+                    });
+                };
+                var url = new Firebase("https://sesteva-budget.firebaseIO.com/budget/search/" + new Date());
+                return angularFire(url, $scope, "trip");
+            });
+        </script>
+
+        <script src="http://cdn.firebase.com/v0/firebase.js"></script>
+        <script src="http://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+    </body>
 </html>
