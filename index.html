@@ -75,7 +75,7 @@
 
                         </div>
 
-                        <div class="input-group col-sm-4">
+                        <div class="col-sm-4">
 
                             <select name="weeks" class="form-control" ng-model="trip.budget">
                                 <option value="">What is your budget?</option>
@@ -127,13 +127,16 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">We're comming soon... Be the first to try our site!</h4>
+                        <h4 class="modal-title">Be part of our private test</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signin form-inline">
-                            <input type="text" class="input-small" placeholder="Email" ng-model="trip.email">
-                            <button type="submit" class="btn" data-dismiss="modal">Notify me!</button>
-                        </form>
+                      <p>Soon we're going to be launching the site with amazing travel options for you. If you want to recieve an invitation to our private test, please complete the from below. Thanks!</p>
+                      <form class="signin form-inline">
+                        <div class="form-group">
+                          <input type="email" class="form-control" placeholder="Email" ng-model="trip.email">
+                        </div>
+                        <button type="submit" class="btn" data-dismiss="modal">Let me be part of the club</button>
+                      </form>
                     </div>
                 </div>
                 <!-- /.modal-content -->
