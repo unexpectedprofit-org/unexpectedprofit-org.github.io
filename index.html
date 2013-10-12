@@ -58,6 +58,7 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Trip<span style="color: #222">Pocket</span></a>
             </div>
+
         </nav>
 
         <div class="jumbotron cover">
@@ -111,6 +112,11 @@
                 <p>&#8220;Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.&#8221;&nbsp;&nbsp;</p>
                 <small><cite title="Source Title">Mark Twain</cite></small>
             </blockquote>
+
+            <!--<div class="g-plus" style="line-height: 20px;" data-action="share" data-annotation="none" data-height="24" data-href="http://www.trippocket.com"></div>-->
+            <!--<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.trippocket.com" data-size="large" data-count="none" data-hashtags="trippocket">Tweet</a>-->
+
+
         </div>
 
         <hr>
@@ -121,7 +127,7 @@
             <!--Uncomment to debug-->
 
             <div class="container navbar-fixed-bottom">
-                <span class="glyphicon glyphicon-envelope pull-left"></span>&nbsp; info@trippocket.com
+                <span class="glyphicon glyphicon-envelope pull-left"></span>&nbsp; <a href="mailto:info@trippocket.com">info@trippocket.com</a>
                 <p class="pull-right">© 2013 TripPocket.com</p>
             </div>
         </footer>
@@ -175,7 +181,6 @@
                     $http.jsonp('http://gd.geobytes.com/AutoCompleteCity', {
                         params: {
                             callback: 'JSON_CALLBACK',
-                            filter: 'US',
                             q: query
                         }
                     }).success(function (cities) {
@@ -189,5 +194,7 @@
 
         <script src="http://cdn.firebase.com/v0/firebase.js"></script>
         <script src="http://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     </body>
 </html>
