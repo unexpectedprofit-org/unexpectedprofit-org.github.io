@@ -11,9 +11,9 @@
         <style>
             .cover {
                 background: url(images/cover.jpg) no-repeat;
-                background-size: cover;
-                padding-top: 200px;
-                padding-bottom: 130px;
+                background-size: height;
+                padding-top: 190px;
+                height: 448px;
             }
 
             .search-form {
@@ -64,7 +64,7 @@
             <div clas="container">
                 <div class="centered main-quote">
                     <p ng-show="trip.budgetKeyword" style="font-size: 1.5em">The Best vacation for your budget</p>
-                    <p ng-hide="trip.budgetKeyword" style="font-size: 2em">Find vacation ideas</p>
+                    <p ng-hide="trip.budgetKeyword" style="font-size: 2em">Find vacation ideas.</p>
                 </div>
 
                 <form class="form-inline form-search search-form" role="form">
@@ -120,7 +120,7 @@
             <!--<pre>{{trip | json}}</pre>-->
             <!--Uncomment to debug-->
 
-            <div class="container">
+            <div class="container navbar-fixed-bottom">
                 <span class="glyphicon glyphicon-envelope pull-left"></span>&nbsp; info@trippocket.com
                 <p class="pull-right">© 2013 TripPocket.com</p>
             </div>
