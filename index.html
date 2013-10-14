@@ -11,9 +11,9 @@
         <style>
             .cover {
                 background: url(images/cover.jpg) no-repeat;
-                background-size: cover;
-                padding-top: 200px;
-                padding-bottom: 130px;
+                background-size: height;
+                padding-top: 190px;
+                height: 448px;
             }
 
             .search-form {
@@ -47,14 +47,14 @@
                 text-shadow: 0 0px 5px rgba(0, 0, 0, 0.8);
             }
 
-            .main-quote cite {
-                color: #aaa;
+            .top-bar {
+               box-shadow: 0px 1px 5px rgba(0,0,0,0.6);
             }
 
         </style>
     </head>
     <body ng-app="siteApp" ng-controller="MainCtrl">
-        <nav class="navbar navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-fixed-top top-bar " role="navigation">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Trip<span style="color: #222">Pocket</span></a>
             </div>
@@ -65,7 +65,7 @@
             <div clas="container">
                 <div class="centered main-quote">
                     <p ng-show="trip.budgetKeyword" style="font-size: 1.5em">The Best vacation for your budget</p>
-                    <p ng-hide="trip.budgetKeyword" style="font-size: 2em">Find vacation ideas</p>
+                    <p ng-hide="trip.budgetKeyword" style="font-size: 2em">Find vacation ideas.</p>
                 </div>
 
                 <form class="form-inline form-search search-form" role="form">
@@ -126,7 +126,7 @@
             <!--<pre>{{trip | json}}</pre>-->
             <!--Uncomment to debug-->
 
-            <div class="container">
+            <div class="container navbar-fixed-bottom">
                 <span class="glyphicon glyphicon-envelope pull-left"></span>&nbsp; <a href="mailto:info@trippocket.com">info@trippocket.com</a>
                 <p class="pull-right">© 2013 TripPocket.com</p>
             </div>
