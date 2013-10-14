@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e4a2d164-7a0a-402b-8acb-852e4a26d1f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="unexpectedprofit-org.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="e4a2d164-7a0a-402b-8acb-852e4a26d1f9" time="1381727969035" ignored="false" />
-    <file path="/index.html" changelist="e4a2d164-7a0a-402b-8acb-852e4a26d1f9" time="1381727989407" ignored="false" />
+    <file path="/index.html" changelist="e4a2d164-7a0a-402b-8acb-852e4a26d1f9" time="1381728093651" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="118" selection-start="6007" selection-end="6007" vertical-scroll-proportion="0.43722942">
+            <state line="143" column="190" selection-start="6121" selection-end="6121" vertical-scroll-proportion="0.45887446">
               <folding>
                 <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#nav#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -295,7 +294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="118" selection-start="6007" selection-end="6007" vertical-scroll-proportion="0.43722942">
+        <state line="143" column="190" selection-start="6121" selection-end="6121" vertical-scroll-proportion="0.45887446">
           <folding>
             <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#nav#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
